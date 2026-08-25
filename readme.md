@@ -86,17 +86,18 @@ Standard regression models often fail in freight pricing by assuming direct line
 
 ### 2. Geospatial Route & Detour Dynamics
 * **Haversine Distance**: Exact spherical great-circle distance between pickup and delivery coordinate pairs.
-* **Detour Ratio**: $\text{detour\_ratio} = \frac{\text{road\_distance}}{\text{haversine\_distance}}$, penalizing circuitous routes through mountain passes or non-direct highway corridors.
+* **Detour Ratio**: `detour_ratio = road_distance / haversine_distance`, penalizing circuitous routes through mountain passes or non-direct highway corridors.
 * **Haul Distance Segmentation**: Binary flags for Short Haul ($\le 250$ miles) and Long Haul ($\ge 1,200$ miles) capturing fixed loading overhead vs. variable highway miles.
 
 ### 3. Payload Physics & Work Metrics
-* **Ton-Miles**: $\text{ton\_miles} = \text{weight\_tons} \times \text{distance}$, quantifying the net mechanical work demand on carrier equipment.
+* **Ton-Miles**: `ton_miles = weight_tons × distance`, quantifying the net mechanical work demand on carrier equipment.
 * **Equipment Encodings**: Categorical one-hot features (`Dry Van`, `Flatbed`, `Reefer`) accounting for specialized refrigeration and flatbed tarping premiums.
 
 ### 4. Cyclical Calendar Dynamics
 * Smooth trigonometric encodings of weekly, monthly, and annual freight cycles:
-  $$\text{dow\_sin} = \sin\left(\frac{2\pi \cdot \text{day\_of\_week}}{7}\right), \quad \text{dow\_cos} = \cos\left(\frac{2\pi \cdot \text{day\_of\_week}}{7}\right)$$
-  $$\text{month\_sin} = \sin\left(\frac{2\pi \cdot (\text{month}-1)}{12}\right), \quad \text{doy\_sin} = \sin\left(\frac{2\pi \cdot (\text{day\_of\_year}-1)}{365.25}\right)$$
+  - **Day of Week**: `dow_sin = sin(2π · day_of_week / 7)`, `dow_cos = cos(2π · day_of_week / 7)`
+  - **Month of Year**: `month_sin = sin(2π · (month - 1) / 12)`, `month_cos = cos(2π · (month - 1) / 12)`
+  - **Day of Year**: `doy_sin = sin(2π · (day_of_year - 1) / 365.25)`, `doy_cos = cos(2π · (day_of_year - 1) / 365.25)`
 
 ---
 
