@@ -227,7 +227,7 @@ Final validation metrics are calculated by Spotter after submission.
 **Shoaib Abid**  
 Machine Learning Engineer & Data Scientist  
 * **GitHub**: [@shoaib1760](https://github.com/shoaib1760)  
-* **LinkedIn**: [Shoaib Abid](https://linkedin.com/in/shoaib-abid)  
+* **LinkedIn**: [Shoaib Abid](https://www.linkedin.com/in/shoaibabid786/)  
 * **Project Repository**: [Freight-Rate-Prediction](https://github.com/shoaib1760/Freight-Rate-Prediction)
 
 ---
